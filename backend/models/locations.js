@@ -9,7 +9,7 @@ const getOne = (id) => {
 };
 
 const getDetailLocation = (id) => {
-  return connection.query("SELECT nameLocation, type FROM locations JOIN details ON locations.details_id=details.id WHERE locations.id=?", [id]);
+  return connection.query("SELECT name, type FROM locations JOIN details ON locations.details_id=details.id WHERE locations.id=?", [id]);
 } 
 
 const create = (data) => {

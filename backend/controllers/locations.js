@@ -22,7 +22,7 @@ const getLocations = async (req, res) => {
       res.status(500).send('An error occured while retrieving location infos');    
   }
 };
-
+//GET the details of a location
 const getDetailsLocations = async (req, res) => {
   try {
     const {id} = req.params;
@@ -44,7 +44,7 @@ const createLocations = async (req, res) => {
           ...body,
       });
   } catch {
-      //console.log(error);
+      console.log(error);
       res.status(500).send('An error occured while creating locations')
   }
 };
