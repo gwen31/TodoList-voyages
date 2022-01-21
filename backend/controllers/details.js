@@ -38,7 +38,6 @@ const createDetails = async (req, res) => {
   }
 };
 
-
 //PUT  Update details
 const updateDetails = async (req, res) => {
   try {
@@ -63,7 +62,6 @@ const deleteDetails = async (req, res) => {
     res.status(500).send('An error occured while deleting Details');
   }
 };
-
 
   module.exports = {
     getAllDetails,

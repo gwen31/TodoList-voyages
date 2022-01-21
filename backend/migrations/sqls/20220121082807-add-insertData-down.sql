@@ -1,4 +1,4 @@
-TRUNCATE `locations`;
-TRUNCATE `details`;
-TRUNCATE `departments`;
-TRUNCATE `users`;
+DROP TABLE IF EXISTS `locations`;
+DROP TABLE IF EXISTS `details`;
+DROP TABLE IF EXISTS `departments`;
+DROP TABLE IF EXISTS `users`;
