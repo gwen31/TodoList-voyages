@@ -62,7 +62,7 @@ const updateLocations = async (req, res) => {
   }
 };
 
-// DELETE delete departments
+// DELETE delete locations
 const deleteLocations = async (req, res) => {
   try {
     const { id } = req.params;
