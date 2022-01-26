@@ -1,4 +1,5 @@
 const User = require('../models/users');
+const bcryptjs = require('bcryptjs');
 
 const getAllUsers = async (req, res) => {
   try {
@@ -20,23 +21,37 @@ const getUser = async (req, res) => {
     res.status(500).send('An error occured while retrieving user infos');
   }
 };
+//CREATE USER
+const signUp =  (req, res) => {
+  
+  bcryptjs.genSalt(10, function(err, salt){
+    bcryptjs.hash(req.body.password, salt, function(err, hash){
+     const user = {
+                    username: req.body.username,
+                    email: req.body.email,
+                    password: hash
+                  }
+      const newUser = User.createOne(user);;
+      res.status(201).json({message: "User created successfully"});
+    })
+  })
+}
 
-const createUser = async (req, res) => {
-  console.log(req)
+  
+/*const createUser = async (req, res) => {
   try {
-    const { email } = req.body;
+    const { email, password } = req.body;
     await User.findEmail(email);
     const createdUser = await User.createOne(req.body);
 
-    res.status(201).json("success created user");
+    res.status(201).json({message: "User created successfully"});
   } catch (error) {
     console.log(error);
     res.status(500).send('An error occured while creating user');
   }
-};
+};*/
 
-
-
+//UPDATE
 const updateUser = async (req, res) => {
   try {
     const { id } = req.params;
@@ -49,6 +64,7 @@ const updateUser = async (req, res) => {
   }
 };
 
+//DELETE
 const deleteUser = async (req, res) => {
     try {
       const { id } = req.params;
@@ -63,7 +79,7 @@ const deleteUser = async (req, res) => {
 module.exports = {
   getAllUsers,
   deleteUser,
-  createUser,
+  signUp,
   getUser,
   updateUser,
 };

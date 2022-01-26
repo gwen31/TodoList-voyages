@@ -3,7 +3,7 @@ const argon2 = require('argon2');
 const connection = require('../db');
 
 //password hasched
-const hashingOptions = {
+/*const hashingOptions = {
   type: argon2.argon2id,
   memoryCost: 2 ** 16,
   timeCost: 5,
@@ -14,7 +14,7 @@ const verifyPassword = (plainPassword, hashedPassword) =>
   argon2.verify(hashedPassword, plainPassword, hashingOptions);
 
 const hashPassword = (plainPassword) =>
-  argon2.hash(plainPassword, hashingOptions);
+  argon2.hash(plainPassword, hashingOptions);*/
 
 const validate = (data, forCreation = true) => {
   const presence = forCreation ? 'required' : 'optional';
@@ -26,7 +26,7 @@ const validate = (data, forCreation = true) => {
 };
 //create users
 
-const createOne = async ({
+/*const createOne = async ({
     username,
     email,
     password,
@@ -37,6 +37,9 @@ const createOne = async ({
       [username, email, hashedPassword]
     )
   );
+};*/
+const createOne = (data) => {
+  return connection.query('INSERT INTO users  SET ?',[data]);
 };
 
 const findEmail = (email) => {
@@ -74,5 +77,5 @@ module.exports = {
   deleteOne,
   findEmail,
   validate,
-  verifyPassword,
+  //verifyPassword,
 };
