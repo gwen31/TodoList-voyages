@@ -37,21 +37,6 @@ const signUp =  (req, res) => {
   })
 }
 
-  
-/*const createUser = async (req, res) => {
-  try {
-    const { email, password } = req.body;
-    await User.findEmail(email);
-    const createdUser = await User.createOne(req.body);
-
-    res.status(201).json({message: "User created successfully"});
-  } catch (error) {
-    console.log(error);
-    res.status(500).send('An error occured while creating user');
-  }
-};*/
-
-//UPDATE
 const updateUser = async (req, res) => {
   try {
     const { id } = req.params;

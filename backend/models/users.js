@@ -2,20 +2,6 @@ const Joi = require('joi');
 const argon2 = require('argon2');
 const connection = require('../db');
 
-//password hasched
-/*const hashingOptions = {
-  type: argon2.argon2id,
-  memoryCost: 2 ** 16,
-  timeCost: 5,
-  parallelism: 1,
-};
-
-const verifyPassword = (plainPassword, hashedPassword) =>
-  argon2.verify(hashedPassword, plainPassword, hashingOptions);
-
-const hashPassword = (plainPassword) =>
-  argon2.hash(plainPassword, hashingOptions);*/
-
 const validate = (data, forCreation = true) => {
   const presence = forCreation ? 'required' : 'optional';
   return Joi.object({
@@ -26,18 +12,6 @@ const validate = (data, forCreation = true) => {
 };
 //create users
 
-/*const createOne = async ({
-    username,
-    email,
-    password,
-}) => {
-  return hashPassword(password).then((hashedPassword) =>
-    connection.query(
-      'INSERT INTO users (username, email, password) VALUES (?, ?, ?)',
-      [username, email, hashedPassword]
-    )
-  );
-};*/
 const createOne = (data) => {
   return connection.query('INSERT INTO users  SET ?',[data]);
 };

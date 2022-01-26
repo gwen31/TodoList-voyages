@@ -7,7 +7,6 @@ const {
   signUp,
   getUser,
   updateUser,
-  
 } = require('../controllers/users');
 
 router.get('/', getAllUsers);
