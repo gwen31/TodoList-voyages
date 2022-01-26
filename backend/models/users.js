@@ -1,5 +1,4 @@
 const Joi = require('joi');
-const argon2 = require('argon2');
 const connection = require('../db');
 
 const validate = (data, forCreation = true) => {
@@ -10,20 +9,9 @@ const validate = (data, forCreation = true) => {
     password: Joi.string().max(255).presence(presence),
   }).validate(data, { abortEarly: false }).error;
 };
-//create users
 
 const createOne = (data) => {
-  return connection.query('INSERT INTO users  SET ?',[data]);
-};
-
-const findEmail = (email) => {
-  return connection
-    .query(
-      `SELECT * FROM users 
-       WHERE email = ?`,
-      [email]
-    )
-    .then(([results]) =>results);
+  return connection.query("INSERT INTO users  SET ?",[data]);
 };
 
 const getAll = () => {
@@ -49,7 +37,6 @@ module.exports = {
   createOne,
   update,
   deleteOne,
-  findEmail,
   validate,
-  //verifyPassword,
+  
 };

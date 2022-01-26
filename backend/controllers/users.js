@@ -1,6 +1,7 @@
 const User = require('../models/users');
 const bcryptjs = require('bcryptjs');
 
+// GET USERS
 const getAllUsers = async (req, res) => {
   try {
     const users = await User.getAll();
@@ -11,6 +12,7 @@ const getAllUsers = async (req, res) => {
   }
 };
 
+// GET ONE USER
 const getUser = async (req, res) => {
   try {
     const { id } = req.params;
@@ -21,22 +23,32 @@ const getUser = async (req, res) => {
     res.status(500).send('An error occured while retrieving user infos');
   }
 };
-//CREATE USER
-const signUp =  (req, res) => {
+//CREATE USER INSCRIPTION
+const signUp =  async(req, res) => {
+
+  const [retrieveUsers] = await User.getAll();
+  const duplicate = retrieveUsers.find((person)=> person.email === req.body.email);
+    if (duplicate)
+      return res.status(409).json({message: 'This email is already used !'}); //CHEK EMAIL
   
-  bcryptjs.genSalt(10, function(err, salt){
-    bcryptjs.hash(req.body.password, salt, function(err, hash){
-     const user = {
-                    username: req.body.username,
-                    email: req.body.email,
-                    password: hash
-                  }
-      const newUser = User.createOne(user);;
-      res.status(201).json({message: "User created successfully"});
-    })
-  })
+      try{
+        bcryptjs.genSalt(10, function(err, salt){
+        bcryptjs.hash(req.body.password, salt, function(err, hash){ //Password hashed
+            const user = {
+                      username: req.body.username,
+                      email: req.body.email,
+                      password: hash
+                    }
+            const newUser = User.createOne(user);
+            res.status(201).json({message: "User created successfully"});
+        })
+        })
+      } catch (err){
+        res.status(500).json({message: err})
+      } 
 }
 
+//UPDATE USER
 const updateUser = async (req, res) => {
   try {
     const { id } = req.params;
@@ -49,7 +61,7 @@ const updateUser = async (req, res) => {
   }
 };
 
-//DELETE
+//DELETE USER
 const deleteUser = async (req, res) => {
     try {
       const { id } = req.params;
