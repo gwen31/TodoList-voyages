@@ -53,23 +53,23 @@ const signUp =  async(req, res) => {
 const signIn =  async(req, res) => {
   const {email , password} = req.body;
     if (!email || !password)
-      return res.status(400).json({message: 'Email and password are requires'});
+      return res.status(400).json({message: 'Email and password are required'}); //email & password required
 
   const [verifyUsers] = await User.getAll();
-  const foundUser = verifyUsers.find((person)=> person.email === req.body.email)
+  const foundUser = verifyUsers.find((person)=> person.email === req.body.email) // verification email
     if (!foundUser) {
       return res.status(401).json({message:'Invalid credentials'});
   
     } else {
-    const match = await bcryptjs.compare(req.body.password, foundUser.password );
-    console.log(foundUser)
-    console.log(req.body.password)
+    const match = await bcryptjs.compare(req.body.password, foundUser.password ); //verification password
       if (match) {
-        const token = jwt.sign({
+        const token = jwt.sign({  //create token
           email: verifyUsers.email,
           userId: verifyUsers.id, 
-        }, 'secret', function(err, token) {
-          res.status(200).json({message: 'authentification succesful', token: token})
+          exp: Math.floor(Date.now()/1000)+(60*60),
+        }, process.env.JWT_KEY, function(err, token) {
+          res.cookie('token', token, {httpOnly: true})
+          res.status(200).json({message: 'authentification succesful'})
         })
       } else {
         res.status(500).json({message:'Password incorrect !'});
