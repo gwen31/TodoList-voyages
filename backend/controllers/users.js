@@ -1,5 +1,6 @@
 const User = require('../models/users');
 const bcryptjs = require('bcryptjs');
+const jwt = require('jsonwebtoken'); 
 
 // GET USERS
 const getAllUsers = async (req, res) => {
@@ -48,6 +49,34 @@ const signUp =  async(req, res) => {
       } 
 }
 
+//LOGIN
+const signIn =  async(req, res) => {
+  const {email , password} = req.body;
+    if (!email || !password)
+      return res.status(400).json({message: 'Email and password are requires'});
+
+  const [verifyUsers] = await User.getAll();
+  const foundUser = verifyUsers.find((person)=> person.email === req.body.email)
+    if (!foundUser) {
+      return res.status(401).json({message:'Invalid credentials'});
+  
+    } else {
+    const match = await bcryptjs.compare(req.body.password, foundUser.password );
+    console.log(foundUser)
+    console.log(req.body.password)
+      if (match) {
+        const token = jwt.sign({
+          email: verifyUsers.email,
+          userId: verifyUsers.id, 
+        }, 'secret', function(err, token) {
+          res.status(200).json({message: 'authentification succesful', token: token})
+        })
+      } else {
+        res.status(500).json({message:'Password incorrect !'});
+      }
+  }
+}
+
 //UPDATE USER
 const updateUser = async (req, res) => {
   try {
@@ -77,6 +106,7 @@ module.exports = {
   getAllUsers,
   deleteUser,
   signUp,
+  signIn,
   getUser,
   updateUser,
 };
