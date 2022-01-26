@@ -10,13 +10,11 @@ const hashingOptions = {
   parallelism: 1,
 };
 
-const hashPassword = (plainPassword) => {
-  return argon2.hash(plainPassword, hashingOptions);
-};
+const verifyPassword = (plainPassword, hashedPassword) =>
+  argon2.verify(hashedPassword, plainPassword, hashingOptions);
 
-const verifyPassword = (plainPassword, hashedPassword) => {
-  return argon2.verify(hashedPassword, plainPassword, hashingOptions);
-};
+const hashPassword = (plainPassword) =>
+  argon2.hash(plainPassword, hashingOptions);
 
 const validate = (data, forCreation = true) => {
   const presence = forCreation ? 'required' : 'optional';
@@ -27,7 +25,8 @@ const validate = (data, forCreation = true) => {
   }).validate(data, { abortEarly: false }).error;
 };
 //create users
-const createOne = ({
+
+const createOne = async ({
     username,
     email,
     password,

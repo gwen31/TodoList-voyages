@@ -7,6 +7,7 @@ const {
   createUser,
   getUser,
   updateUser,
+  signUp,
 } = require('../controllers/users');
 
 router.get('/', getAllUsers);

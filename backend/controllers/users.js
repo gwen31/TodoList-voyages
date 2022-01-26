@@ -28,12 +28,14 @@ const createUser = async (req, res) => {
     await User.findEmail(email);
     const createdUser = await User.createOne(req.body);
 
-    res.status(201).json(createdUser);
+    res.status(201).json("success created user");
   } catch (error) {
     console.log(error);
     res.status(500).send('An error occured while creating user');
   }
 };
+
+
 
 const updateUser = async (req, res) => {
   try {
