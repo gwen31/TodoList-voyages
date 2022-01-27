@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter');
+
+//Couleur du site
+$white: #ffffff;
+$beige: #f3ebe0;
+$orange: #f5c994;
+$black: #010102;
+$blue: #adcff3;
+$gray:#e6e4e1 ;
+$darkGray: #948D85;
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    position: relative;
+    background-color: $white;
+    font-family: 'Architects Daughter', cursive;
+    font-size: 1.3rem;
+    color: $black;
+}
+li {
+    list-style: none;
+    font-size: 1.3rem;
+}
+a {
+    text-decoration: none !important;
+    color: $black !important;
+    font-size: 1.3rem;
+}
+h1 {
+    position: absolute;
+    margin-left: 750px;
+    margin-top: 20px;
+}
+h2 {
+    text-align: center;
+    margin-top: 40px;
+
+    @media  (max-width: 600px) {
+        font-size: 1.5rem;
+    }
+}
+
+ button {
+        padding: 8px;
+        background-color: $blue;
+        color: $black;
+       
+    }
+
+.page-notFound{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    
+    button {
+        margin-top: 60px;
+    }
+}
+
+.leaflet-container {
+    width: 90vw;
+    height: 90vh;
+    margin: auto;
+    margin-bottom: 40px;
+}
