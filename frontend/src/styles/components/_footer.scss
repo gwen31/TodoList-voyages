@@ -1,0 +1,11 @@
+.footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2A2B2E;
+    height: 150px;
+
+    &__name{
+        color: $white;
+    }
+}
