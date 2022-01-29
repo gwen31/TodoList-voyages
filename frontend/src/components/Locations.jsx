@@ -6,6 +6,7 @@ import CardLocation from './CardLocations';
 
 import Navigation from './Navigation';
 import Footer from './Footer';
+import Mapping from './Mapping';
 
 
 
@@ -33,6 +34,7 @@ const Locations = () => {
                 ))}
             </div>
             <div>
+                <Mapping />
         </div>
         <Footer />
         </>
