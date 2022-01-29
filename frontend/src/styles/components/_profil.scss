@@ -1,0 +1,56 @@
+.connection-form {
+    display: flex;
+    justify-content: space-around;
+    margin: auto;
+    margin-top: 50px;
+    width: 50%;
+    height: 450px;
+    position:relative;
+    border-radius: 2px;
+    box-shadow: 6px 0px 10px 0px  $darkGray;
+   
+
+    .form-container {
+        display: flex;
+        align-items: center;
+        width: 30%;
+        flex-direction: column;
+       // border:blueviolet 2px solid;
+        
+        button{
+            padding: 10px;
+            border-radius: 2px;
+            margin-top: 100px;
+           
+        }
+    }
+
+    form{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        margin-top: 30px;
+        height: 395px;
+        width: 100%;
+      //border:blueviolet 2px solid;
+
+      input{
+          width: 380px;
+          padding:8px;
+          margin-bottom: 30px;
+          border-radius: 2px;
+          border: none;
+          padding: 8px;
+          background-color: $gray;
+      }
+      .sign{
+        padding: 10px;
+        border-radius: 2px;
+        margin: auto;
+        width: 170px;
+        margin-top: 30px;
+        background-color: $orange;
+    }
+        
+    }
+}
