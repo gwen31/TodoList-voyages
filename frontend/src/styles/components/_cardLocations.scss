@@ -1,0 +1,43 @@
+.container-location {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 20px;
+    width: 100%;
+    height: 400px;
+    
+    
+   
+    
+    
+}
+.card-location{
+    overflow: hidden;
+    text-align: center;
+    padding: 20px;
+    margin-left: 20px;
+    margin-bottom: 30px;
+    border: 0.5px solid $white;
+    border-radius: 2px;
+    width:  20%;
+    height: 150px;
+    box-shadow: 6px 0px 10px 0px  $darkGray;
+   
+
+    .container-button {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 10px;
+
+        button {
+            background-color: $white;
+
+            &:hover{
+                background-color: $beige;
+                border-radius: 2px;
+            }
+        }
+    }
+}

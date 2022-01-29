@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import 'rsuite/dist/rsuite.min.css';
 import "./app.css";
 import Header from "./components/Header";
+import Locations from "./components/Locations";
 import AddLocation from "./pages/AddLocation";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
@@ -15,9 +16,9 @@ const App = () => {
       <div className="App">
         <Header />
         <Routes>
-        <Route path="/" element={<Profil />} />
-          <Route path="/home" element={<Home />} /> 
-          
+        <Route path="/" element={<Home />} />
+          <Route path="/profil" element={<Profil />} /> 
+          <Route path="/departments/:id/locations" element={<Locations />} />
           <Route path="/addLocation" element={<AddLocation />} />
           <Route path="*" element={<NotFound />} />
       </Routes>

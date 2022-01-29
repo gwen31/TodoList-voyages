@@ -10,12 +10,12 @@ const Navigation = () => {
             <Navbar className="navbar">
                     <Nav>
                         <Nav.Item className="nav_link">
-                        <NavLink to="/"><img className="logo" src="assets/home.png" alt="logo home" height="30" width="30"/>
+                        <NavLink to="/"><img className="logo" src="/assets/home.png" alt="logo home" height="30" width="30"/>
                             Accueil
                             </NavLink>
                         </Nav.Item>
                         <Nav.Item className="nav_link">
-                        <NavLink to="/addLocation"><img className="logo" src="assets/addForm.png" alt="logo home" height="30" width="30"/>
+                        <NavLink to="/addLocation"><img className="logo" src="/assets/addForm.png" alt="logo home" height="30" width="30"/>
                             Ajouter un lieu
                             </NavLink>
                         </Nav.Item>
