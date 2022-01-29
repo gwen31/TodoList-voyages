@@ -1,0 +1,45 @@
+.formAddDepartment {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+    width: 100%;
+
+    @media (max-width: 789px) {
+        padding: 10px;
+    }
+  
+   .form {
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       margin: auto;
+       padding: 40px;
+       width: 70%;
+       border-radius: 2px;
+       box-shadow: 6px 0px 10px 0px  $darkGray;
+
+       @media (max-width: 789px) {
+            width: 370px;
+           padding: 15px;
+        }
+          input {
+              margin-bottom: 40px;
+              border-radius: 2px;
+              border: none;
+              padding: 8px;
+              background-color: $gray;
+          } 
+          select {
+            margin-bottom: 40px;
+            background-color: $gray;
+            padding: 8px;
+            border-radius: 2px;
+              border: none;
+        }
+        .addForm {
+            width: 150px;
+            margin: auto;
+        }
+    }
+       
+ }
