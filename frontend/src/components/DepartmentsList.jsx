@@ -5,10 +5,12 @@ import CardDepartments from "./CardDepartments";
 
 const DepartmentsList = () => {
     const [ data, setData ] = useState([]);
+    
     const [textSearch, setTextSearch] = useState("");
     const [resultSearch, setResultSearch] = useState([]);
    
     const [selectedRegion, setSelectedRegion] = useState('');
+    
     const regions = ["Occitanie",
                      "Bretagne", 
                      "Pays de la Loire", 
@@ -25,7 +27,7 @@ const DepartmentsList = () => {
 
     useEffect(() => {
         axios
-            .get("http://localhost:4000/departments")
+            .get(`${process.env.REACT_APP_API_URL}/departments`)
             .then((res) => setData(res.data));
     }, []);
     
@@ -70,7 +72,6 @@ const DepartmentsList = () => {
                        placeholder='Rechercher un département'
                        onChange={e => onChangeHandler(e.target.value)}
                        value={textSearch}
-                     
                     />
                     <img className="logo" src="assets/icon-search.png" alt="logo home" height="25" width="25"/>
                 </div>
@@ -88,7 +89,6 @@ const DepartmentsList = () => {
                     </div>
             </div>
         </div>
-      
     )
 }
 

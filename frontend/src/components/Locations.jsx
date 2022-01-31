@@ -3,26 +3,21 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import CardLocation from './CardLocations';
-
 import Navigation from './Navigation';
 import Footer from './Footer';
 import Mapping from './Mapping';
-
-
-
 
 const Locations = () => {
   let { id ,} = useParams();
   const [locationData, setLocationData] = useState([]);
   
- 
   useEffect(() => {
     axios
-        .get(`http://localhost:4000/departments/${id}/locations`)
+        .get(`${process.env.REACT_APP_API_URL}/departments/${id}/locations`)
         .then((res) => setLocationData(res.data));
         
 }, [id]);
-
+console.log(setLocationData)
     return (
         <>
         <Navigation />

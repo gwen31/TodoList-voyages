@@ -3,27 +3,18 @@ import axios from 'axios'
 import { useParams } from 'react-router-dom';
 import { MapContainer, TileLayer} from 'react-leaflet';
 
-
-
-
 function Mapping() {
   let {id} = useParams();
   const [departmentId, setDepartmentId] = useState([])
   
-
-
   useEffect(() => {
     axios
-        .get(`http://localhost:4000/departments/${id}`)
+        .get(`${process.env.REACT_APP_API_URL}/departments/${id}`)
         .then((res) => setDepartmentId(res.data));
         
 }, [id]);
-console.log(id)
 console.log(departmentId)
-console.log(departmentId.lat, departmentId.lng)
-
 const position = [43.959949,4.297637]
-
 
     return (
       <div  className='leaflet-container'>

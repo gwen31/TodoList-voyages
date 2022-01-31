@@ -19,6 +19,11 @@ const Navigation = () => {
                             Ajouter un lieu
                             </NavLink>
                         </Nav.Item>
+                        <Nav.Item className="nav_link">
+                        <NavLink to="/addLocation"><img className="logo3" src="/assets/profil.png" alt="logo home" height="30" width="30"/>
+                            Déconnexion
+                            </NavLink>
+                        </Nav.Item>
                     </Nav>
             </Navbar>
     </div>

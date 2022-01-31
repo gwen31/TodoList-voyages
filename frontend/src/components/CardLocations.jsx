@@ -9,18 +9,18 @@ function CardLocation(props) {
 
     useEffect(() => {
         axios
-            .get(`http://localhost:4000/locations/${id}/details`)
+            .get(`${process.env.REACT_APP_API_URL}/locations/${id}/details`)
             .then((res) => setDetailData(res.data));
     },[id]);
    
     const handleDelete = () => {
         axios
-            .delete(`http://localhost:4000/locations/${id}`);
+            .delete(`${process.env.REACT_APP_API_URL}/locations/${id}`);
     }
 
     const handleVisitedChange = () => {
         axios
-            .put(`http://localhost:4000/locations/${id}`, {
+            .put(`${process.env.REACT_APP_API_URL}/locations/${id}`, {
                 name: location.name,
                 departments_id: location.departments_id,
                 visited: isVisited
@@ -38,7 +38,7 @@ function CardLocation(props) {
     return (
         <>
         <div className='card-location'>
-            <h4 style={location.visited ? { backgroundColor: 'beige' }  :  {backgroundColor: 'white'}}>{location.name}</h4>
+            <h4 style={location.visited ? { color: 'green' }  :  {color: '#010102'}}>{location.name}</h4>
             {detailData?.length && detailData.map((detail) => (
                  <p>{detail.type}</p>
                  ))}  
@@ -69,4 +69,6 @@ function CardLocation(props) {
 }
 
 export default CardLocation
+
+
  //const handleVisitedChange = useCallback(() => setIsVisited((c) => !c) ,[])

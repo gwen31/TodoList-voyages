@@ -10,7 +10,6 @@ const CardDepartement = (props) => {
               <img className="card__img" src={departement.image} alt="department"  />
               <div className="description">
                 <h4>{departement.name}</h4>
-                  {/*<p>{departement.region}</p>*/}
               </div>
                     <div className="button">
                     <Link id="RouterNavLink" to={`departments/${departement.id}/locations`}>
