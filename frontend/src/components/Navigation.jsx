@@ -10,7 +10,7 @@ const Navigation = () => {
             <Navbar className="navbar">
                     <Nav>
                         <Nav.Item className="nav_link">
-                        <NavLink to="/"><img className="logo" src="/assets/home.png" alt="logo home" height="30" width="30"/>
+                        <NavLink to="/home"><img className="logo" src="/assets/home.png" alt="logo home" height="30" width="30"/>
                             Accueil
                             </NavLink>
                         </Nav.Item>
@@ -20,7 +20,7 @@ const Navigation = () => {
                             </NavLink>
                         </Nav.Item>
                         <Nav.Item className="nav_link">
-                        <NavLink to="/addLocation"><img className="logo3" src="/assets/profil.png" alt="logo home" height="30" width="30"/>
+                        <NavLink to="/"><img className="logo3" src="/assets/profil.png" alt="logo home" height="30" width="30"/>
                             Déconnexion
                             </NavLink>
                         </Nav.Item>

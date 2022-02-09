@@ -12,7 +12,7 @@ const CardDepartement = (props) => {
                 <h4>{departement.name}</h4>
               </div>
                     <div className="button">
-                    <Link id="RouterNavLink" to={`departments/${departement.id}/locations`}>
+                    <Link id="RouterNavLink" to={`/home/departments/${departement.id}/locations`}>
                      <button className="list">Liste des lieux</button>
                     </Link>
                     </div>

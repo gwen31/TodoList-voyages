@@ -1,14 +1,16 @@
 import React from 'react';
 import axios from 'axios';
 import {useState} from "react";
+import { useNavigate } from 'react-router-dom';
 
 const SignInForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  let navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
-
+   
     axios.post('http://localhost:4000/auth', {
         email: email,
         password: password
@@ -16,13 +18,13 @@ const SignInForm = () => {
     })
     
     .then((res) => {
-      console.log(res)
-       
-     
-
+      navigate('/home')  
     })
     .catch((err) => {
-      console.log({message:"err"})
+     if(err.code === {Error: "Request failed with status code 400"})
+      return "mot de passe incorrect"
+      console.log(err)
+
     })
     
   }
@@ -36,6 +38,7 @@ const SignInForm = () => {
           onChange={(e) => setEmail(e.target.value)}
           value={email}
         />
+        <div className="email.error"></div>
       <label htmlFor="password">Mot de passe</label>
       <input
         type="password"
@@ -44,6 +47,7 @@ const SignInForm = () => {
         onChange={(e) => setPassword(e.target.value)}
         value={password}
       />
+      
       <input className="sign" type="submit" value="Se connecter" />
 
     </form>
