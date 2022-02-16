@@ -8,20 +8,62 @@
     position:relative;
     border-radius: 2px;
     box-shadow: 6px 0px 10px 0px  $darkGray;
-   
 
+    @media (max-width: 789px) {
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        height: 500px;
+        margin-top: 40px;
+        font-size: 1.1rem;
+        margin-bottom: 20px;
+    }
+
+    @media screen and (min-width: 800px) and (max-width: 1040px) {
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        height: 500px;
+        margin-top: 40px;
+        font-size: 1.1rem;
+        margin-bottom: 20px;
+    }
+   
     .form-container {
         display: flex;
         align-items: center;
         width: 30%;
         flex-direction: column;
        // border:blueviolet 2px solid;
+
+       @media (max-width: 789px) {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        margin-top: 40px;
+        margin-bottom: 20px;
+        justify-content: space-around;
+    }
+    @media screen and (min-width: 800px) and (max-width: 1040px) {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        margin-top: 40px;
+        margin-bottom: 20px;
+        justify-content: space-around;
+    }
         
-        button{
+        .button{
             padding: 10px;
             border-radius: 2px;
             margin-top: 100px;
-           
+
+            @media (max-width: 789px) {
+                margin-top:5px ;
+            }
+            @media screen and (min-width: 800px) and (max-width: 1040px) {
+                margin-top:5px ;
+            }
         }
     }
 
@@ -34,6 +76,15 @@
         width: 100%;
       //border:blueviolet 2px solid;
 
+      @media (max-width: 789px) {
+        width: 90% ;
+        margin: auto;
+     }
+     @media screen and (min-width: 800px) and (max-width: 1040px) {
+        width: 50% ;
+        margin: auto;
+    }
+
       input{
           width: 380px;
           padding:8px;
@@ -42,6 +93,16 @@
           border: none;
           padding: 8px;
           background-color: $gray;
+
+          @media (max-width: 789px) {
+            width: 100% ;
+            
+         }
+
+          @media (max-width: 789px) and (min-width: 1040px) {
+            width: 100% ;
+           
+        }
       }
       .sign{
         padding: 10px;
@@ -50,7 +111,6 @@
         width: 170px;
         margin-top: 30px;
         background-color: $orange;
-    }
-        
+    }      
     }
 }

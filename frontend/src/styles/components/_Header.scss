@@ -1,0 +1,30 @@
+.header {
+
+    width: 100%;
+
+    @media (max-width: 789px) {
+        width: 100%;
+
+      }
+
+    .title {
+        position: absolute;
+        text-align: center;
+        margin-top: 20px;
+        width: 100%;
+        
+        @media (max-width: 789px) {
+            position: absolute;
+            width: 100%;
+            margin-top: 30px;
+            font-size: 2rem;
+          }
+    }
+    .img-header{
+        width: 100%;
+
+        @media (max-width: 789px) {
+            height: 230px;
+        }
+    }
+}

@@ -11,17 +11,17 @@ const Navigation = () => {
                     <Nav>
                         <Nav.Item className="nav_link">
                         <NavLink to="/home"><img className="logo" src="/assets/home.png" alt="logo home" height="30" width="30"/>
-                            Accueil
+                            <span>Accueil</span>
                             </NavLink>
                         </Nav.Item>
                         <Nav.Item className="nav_link">
                         <NavLink to="/addLocation"><img className="logo" src="/assets/addForm.png" alt="logo home" height="30" width="30"/>
-                            Ajouter un lieu
+                            <span>Ajouter un lieu</span>
                             </NavLink>
                         </Nav.Item>
                         <Nav.Item className="nav_link">
                         <NavLink to="/"><img className="logo3" src="/assets/profil.png" alt="logo home" height="30" width="30"/>
-                            Déconnexion
+                            <span>Déconnexion</span>
                             </NavLink>
                         </Nav.Item>
                     </Nav>
